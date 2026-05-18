@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "video-frame-extractor"
+version = "0.1.0"
+description = "Desktop GUI for extracting frames from videos with Python, Tkinter, and ffmpeg."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Sandeep Karmacharya" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "ruff>=0.5",
+]
+
+[project.scripts]
+video-frame-extractor-cli = "video_frame_extractor:cli"
+video-frame-extractor-gui = "video_frame_extractor:main"
+
+[tool.setuptools]
+py-modules = ["video_frame_extractor"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
